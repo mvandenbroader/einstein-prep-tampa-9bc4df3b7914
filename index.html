@@ -385,7 +385,7 @@ function lastWeekCommitments(mgr) {
   var items = syncFocusFor(mgr, PREV_WEEK);
   if (items && items.length) {
     return items.map(function (f) {
-      return { description: f.description, source: 'Set in last week's sync (week of ' + fmtWeek(PREV_WEEK) + ')' };
+      return { description: f.description, source: 'From the sync for the week of ' + fmtWeek(PREV_WEEK) };
     });
   }
   var block = latestSyncFocusUpTo(mgr, PREV_WEEK);
