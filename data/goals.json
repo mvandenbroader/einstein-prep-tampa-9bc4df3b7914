@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "quarter": "Q3 2026",
+    "quarterStart": "2026-08-01",
+    "quarterEnd": "2026-10-31",
+    "generatedFor": "2026-08-24",
+    "sourceLastGenerated": "2026-08-04T00:00:00"
+  },
+  "branch": {
+    "id": "tampa",
+    "name": "Tampa",
+    "lastSync": "2026-08-18"
+  },
+  "managers": [
+    {
+      "id": "steven-anderson",
+      "name": "Steven Anderson",
+      "role": "BM",
+      "goals": [
+        {
+          "id": 1,
+          "name": "Mover Training App",
+          "thresholds": {
+            "superGreen": "100% manager sandbox by 8/19. 100% movers enrolled 8/20. 70%+ enrolled movers complete FULL pipeline (Lead Ready) by 10/19.",
+            "green": "100% manager sandbox by 8/19. 100% movers enrolled 8/20. 70%+ enrolled movers complete through stage 4 by EOQ.",
+            "red": "Less than 70% of enrolled movers complete through stage 4 by EOQ."
+          },
+          "status": "super_green",
+          "currentValue": "SOP training completing today (8/18). Movers enrolled 8/20.",
+          "notes": "Steven finishing SOP today, Shane at home doing it today. Both done by 8/19 EOD. Team goes live 8/20.",
+          "nextAction": "Complete SOP by 8/19 EOD; team live 8/20",
+          "lastUpdated": "2026-08-18"
+        },
+        {
+          "id": 2,
+          "name": "Individual Sales Goal",
+          "thresholds": {
+            "superGreen": "110%+ to quarterly sales goal",
+            "green": "100%+ to quarterly sales goal",
+            "red": "Less than 100% to quarterly sales goal"
+          },
+          "status": "red",
+          "currentValue": "Still red -- constrained by practice-period limits (1-2 BR, ~1600 sq ft)",
+          "notes": "Steven must expand beyond Tampa to hit goals. Tampa-only leads too limited for practice period. RLs cherry-picking 1-2 BR leads. $4.2K Ken Smith cancellation under investigation. Weekly target $4,300.",
+          "nextAction": "Expand sales quoting beyond Tampa; target $4,300/week",
+          "lastUpdated": "2026-08-18"
+        },
+        {
+          "id": 3,
+          "name": "Scrum University",
+          "thresholds": {
+            "superGreen": "Scrum certification completed and 90+ grade on board scoring",
+            "green": "Scrum certification completed and 80+ grade on board scoring",
+            "red": "Any manager at branch not completed with scrum certification and/or board score below 80"
+          },
+          "status": "blocked",
+          "currentValue": "",
+          "notes": "Blocked until Brian rolls out Scrum University. Shane confirmed he cannot find enrollment anywhere.",
+          "nextAction": "Waiting on Brian",
+          "lastUpdated": "2026-08-11"
+        },
+        {
+          "id": 4,
+          "name": "Overall Games Accountability",
+          "thresholds": {
+            "superGreen": "Branch average total score 8 or higher (no individual score below 6)",
+            "green": "Branch average total score 7 or higher (no individual score below 6)",
+            "red": "Branch average total score less than 7"
+          },
+          "status": "blocked",
+          "currentValue": "",
+          "notes": "Blocked until Madison pushes Games dashboard live. Mike flagged: 3 weeks into Q3 with no numbers -- 'that is a problem.'",
+          "nextAction": "Monitor Madison for Games dashboard activation",
+          "lastUpdated": "2026-08-18"
+        },
+        {
+          "id": 5,
+          "name": "BM Flex Goal",
+          "thresholds": {
+            "superGreen": "BM flex goal defined and approved by RGNL by AUG 15. Approved Super Green goal met by EOQ.",
+            "green": "BM flex goal defined and approved by RGNL by AUG 30. Approved Green goal met by EOQ.",
+            "red": "Flex goal undefined by AUG 30 or approved Green goal not met."
+          },
+          "status": "green",
+          "currentValue": "R/G/SG defined: SG = locked + moved in by EOQ; G = locked + lease signed + ready; R = no location secured",
+          "notes": "Criteria finalized in 8/18 sync. Touring Ready Space at 5806 N 53rd St ($3,100/mo, saves $2,800/mo). Property details pending from manager. Steven updating reference pulse today.",
+          "nextAction": "Forward property details to Mike/Paul; finalize reference pulse with R/G/SG",
+          "lastUpdated": "2026-08-18"
+        }
+      ],
+      "weeklyFocus": [
+        {
+          "weekOf": "2026-08-04",
+          "items": [
+            {
+              "description": "Posting the schedule",
+              "completed": null,
+              "notes": ""
+            },
+            {
+              "description": "Ensuring rental agreements are paid",
+              "completed": null,
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "weekOf": "2026-08-11",
+          "items": [
+            {
+              "description": "Complete hiring -- onboard 2 current candidates + source 2 more culture-fit hires (target 110% hiring goal)",
+              "completed": true,
+              "notes": "Confirmed done in 8/18 sync. FTE at 12, new rep starts 8/29."
+            },
+            {
+              "description": "Finalize candidate pipeline for remaining positions",
+              "completed": true,
+              "notes": "Steven: 'done at this point, should not bring on anybody else.'"
+            }
+          ]
+        },
+        {
+          "weekOf": "2026-08-18",
+          "items": [
+            {
+              "description": "Complete SOP training for mover app",
+              "completed": null,
+              "notes": "Due 8/19 EOD. Shane also completing today."
+            },
+            {
+              "description": "Schedules completed and posted",
+              "completed": true,
+              "notes": "Already done per Steven at start of sync."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shane-heaberlin",
+      "name": "Shane Heaberlin",
+      "role": "Ops",
+      "goals": [
+        {
+          "id": 1,
+          "name": "Mover Training App",
+          "thresholds": {
+            "superGreen": "100% manager sandbox by 8/19. 100% movers enrolled 8/20. 70%+ enrolled movers complete FULL pipeline (Lead Ready) by 10/19.",
+            "green": "100% manager sandbox by 8/19. 100% movers enrolled 8/20. 70%+ enrolled movers complete through stage 4 by EOQ.",
+            "red": "Less than 70% of enrolled movers complete through stage 4 by EOQ."
+          },
+          "status": "super_green",
+          "currentValue": "SOP training in progress (at home 8/18). Done by 8/19 EOD.",
+          "notes": "Shane doing SOP training at home today. Confirmed by Steven.",
+          "nextAction": "Complete SOP by 8/19 EOD; team live 8/20",
+          "lastUpdated": "2026-08-18"
+        },
+        {
+          "id": 2,
+          "name": "Individual Sales Goal",
+          "thresholds": {
+            "superGreen": "110%+ to quarterly sales goal",
+            "green": "100%+ to quarterly sales goal",
+            "red": "Less than 100% to quarterly sales goal"
+          },
+          "status": "at_risk",
+          "currentValue": "Delivering on weekly targets. Mike: 'Shane is doing awesome.' Weekly target $4,400.",
+          "notes": "Shane hit weekly sales target last week and likely surpassed $4,400 this week per Steven. Pipeline follow-up process driving 65-70% of bookings. Quarterly pace improving from Week 1 red (16.6%). Needs praise logging -- not logging in system, may be batching.",
+          "nextAction": "Continue weekly sales pace; hit $4,400/week",
+          "lastUpdated": "2026-08-18"
+        },
+        {
+          "id": 3,
+          "name": "Scrum University",
+          "thresholds": {
+            "superGreen": "Scrum certification completed and 90+ grade on board scoring",
+            "green": "Scrum certification completed and 80+ grade on board scoring",
+            "red": "Any manager at branch not completed with scrum certification and/or board score below 80"
+          },
+          "status": "blocked",
+          "currentValue": "",
+          "notes": "Blocked until Brian rolls out. Shane confirmed cannot find enrollment.",
+          "nextAction": "Waiting on Brian",
+          "lastUpdated": "2026-08-11"
+        },
+        {
+          "id": 4,
+          "name": "Fleet Games Accountability",
+          "thresholds": {
+            "superGreen": "Branch Samsara score 8 or higher",
+            "green": "Branch Samsara score 7 or higher",
+            "red": "Branch Samsara score less than 7"
+          },
+          "status": "blocked",
+          "currentValue": "",
+          "notes": "Blocked until Madison pushes Games dashboard live. Mike flagged: 3 weeks into Q3 with no numbers.",
+          "nextAction": "Monitor Games dashboard activation",
+          "lastUpdated": "2026-08-18"
+        },
+        {
+          "id": 5,
+          "name": "OPS Flex Goal",
+          "thresholds": {
+            "superGreen": "OPS flex goal defined and approved by RGNL by AUG 15. Approved Super Green goal met by EOQ.",
+            "green": "OPS flex goal defined and approved by RGNL by AUG 30. Approved Green goal met by EOQ.",
+            "red": "Flex goal undefined by AUG 30 or approved Green goal not met."
+          },
+          "status": "green",
+          "currentValue": "Goal defined: 5 vendor contracts (SG), 4 (G), 3 or fewer (R). 2 near-ready.",
+          "notes": "Outside sales / lead gen partnerships. Has 2 contracts near-ready. Must include job minimums per partner (2-3 jobs each over the quarter). Will model partner value by unit count, activity, revenue.",
+          "nextAction": "Define job minimums per partnership; update pulse; pursue 5+ vendor contracts",
+          "lastUpdated": "2026-08-11"
+        }
+      ],
+      "weeklyFocus": [
+        {
+          "weekOf": "2026-08-04",
+          "items": [
+            {
+              "description": "Deliver on weekly sales goal",
+              "completed": null,
+              "notes": ""
+            },
+            {
+              "description": "Tighten up yard and storage organization",
+              "completed": null,
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "weekOf": "2026-08-11",
+          "items": [
+            {
+              "description": "Deliver on weekly sales target",
+              "completed": true,
+              "notes": "Mike confirmed: 'sounds like he did that.'"
+            },
+            {
+              "description": "Fix Ybor backup camera",
+              "completed": true,
+              "notes": "Steven confirmed fixed."
+            }
+          ]
+        },
+        {
+          "weekOf": "2026-08-18",
+          "items": [
+            {
+              "description": "Continue delivering on weekly sales target ($4,400)",
+              "completed": null,
+              "notes": "Shane not present for sync. Sales going well per Steven/Mike."
+            },
+            {
+              "description": "Log praise entries (at least weekly)",
+              "completed": null,
+              "notes": "Mike flagged: Shane not logging praise in system. Must log at least weekly."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
