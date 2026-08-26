@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Tampa Weekly Sync Prep - Einstein Moving</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #FF6C00; --orange-dark: #CC5600; --orange-light: #FFF3E8;
+  --bg: #F2F4F7; --card: #FFFFFF; --border: #E2E6EA;
+  --text: #1A1D23; --text-muted: #6B7280; --text-light: #9CA3AF;
+  --sg-bg: #00C04B; --sg-text: #FFFFFF; --sg-border: #00A03E;
+  --g-bg: #DCFCE7;  --g-text: #166534;  --g-border: #86EFAC;
+  --ar-bg: #FEF3C7; --ar-text: #92400E; --ar-border: #FCD34D;
+  --r-bg: #FEE2E2;  --r-text: #991B1B;  --r-border: #FCA5A5;
+  --bl-bg: #EDE9FE; --bl-text: #5B21B6; --bl-border: #A78BFA;
+  --nd-bg: #F3F4F6; --nd-text: #6B7280; --nd-border: #D1D5DB;
+}
+body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
+
+.header { background: var(--orange); color: #fff; padding: 0 24px; display: flex; align-items: center;
+  justify-content: space-between; min-height: 60px; position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); gap: 12px; flex-wrap: wrap; }
+.header-left { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
+.header-logo { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; }
+.header-logo span { opacity: 0.7; font-weight: 400; }
+.header-title { font-size: 15px; font-weight: 500; opacity: 0.95; border-left: 1px solid rgba(255,255,255,0.35); padding-left: 12px; }
+.header-meta { font-size: 12px; opacity: 0.85; text-align: right; padding: 8px 0; }
+
+.banner { padding: 10px 24px; font-size: 13px; font-weight: 500; text-align: center; }
+.banner.warn { background: var(--ar-bg); color: var(--ar-text); border-bottom: 1px solid var(--ar-border); }
+.banner.err { background: var(--r-bg); color: var(--r-text); border-bottom: 1px solid var(--r-border); }
+
+.content { padding: 24px; max-width: 940px; margin: 0 auto; }
+
+.who-bar { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.who-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); }
+.who-btn { padding: 9px 16px; border: 1px solid var(--border); background: #fff; border-radius: 7px;
+  font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .15s; }
+.who-btn:hover { border-color: var(--orange); color: var(--orange); }
+.who-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; font-weight: 700; }
+.who-role { font-size: 11px; opacity: .75; margin-left: 5px; }
+
+.intro { background: var(--orange-light); border: 1px solid #FFD9BA; border-left: 4px solid var(--orange);
+  border-radius: 8px; padding: 14px 18px; margin-bottom: 22px; font-size: 13px; }
+.intro b { display: block; margin-bottom: 5px; font-size: 14px; }
+
+.section { margin-bottom: 30px; }
+.section-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; flex-wrap: wrap; }
+.section-num { width: 24px; height: 24px; border-radius: 50%; background: var(--orange); color: #fff;
+  font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.section-title { font-size: 18px; font-weight: 700; }
+.section-sub { font-size: 12px; color: var(--text-muted); margin: 0 0 14px 34px; }
+
+.goal { background: var(--card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px;
+  overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.goal-head { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex;
+  align-items: center; justify-content: space-between; gap: 12px; background: #FAFBFC; flex-wrap: wrap; }
+.goal-name { font-size: 15px; font-weight: 700; }
+.badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+  padding: 4px 9px; border-radius: 5px; white-space: nowrap; }
+.badge.super_green { background: var(--sg-bg); color: var(--sg-text); border: 1px solid var(--sg-border); }
+.badge.green { background: var(--g-bg); color: var(--g-text); border: 1px solid var(--g-border); }
+.badge.at_risk { background: var(--ar-bg); color: var(--ar-text); border: 1px solid var(--ar-border); }
+.badge.red { background: var(--r-bg); color: var(--r-text); border: 1px solid var(--r-border); }
+.badge.blocked { background: var(--bl-bg); color: var(--bl-text); border: 1px solid var(--bl-border); }
+.badge.no_data, .badge.not_started { background: var(--nd-bg); color: var(--nd-text); border: 1px solid var(--nd-border); }
+
+.goal-body { padding: 16px 18px; }
+.ctx { background: #F8F9FB; border: 1px solid var(--border); border-radius: 7px; padding: 12px 14px; margin-bottom: 16px; font-size: 13px; }
+.ctx-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--text-light); margin-bottom: 6px; }
+.ctx-row { margin-bottom: 5px; }
+.ctx-row:last-child { margin-bottom: 0; }
+.ctx-row b { color: var(--text-muted); font-weight: 700; }
+details.thr { margin-top: 9px; }
+details.thr summary { cursor: pointer; font-size: 12px; font-weight: 700; color: var(--orange); outline: none; }
+.thr-body { margin-top: 8px; font-size: 12px; }
+.thr-line { padding: 5px 0; border-top: 1px dashed var(--border); }
+.thr-line span { font-weight: 700; }
+
+.field { margin-bottom: 14px; }
+.field:last-child { margin-bottom: 0; }
+.field label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.field .hint { font-weight: 400; color: var(--text-muted); }
+textarea, input[type=text] { width: 100%; font-family: inherit; font-size: 13.5px; line-height: 1.5;
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: 7px; background: #fff;
+  color: var(--text); resize: vertical; }
+textarea:focus, input[type=text]:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,108,0,.12); }
+textarea { min-height: 74px; }
+textarea.short { min-height: 58px; }
+.invalid textarea, .invalid input[type=text] { border-color: var(--r-border); background: #FFFAFA; }
+
+.focus { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+  margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.focus-desc { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+.focus-src { font-size: 11px; color: var(--text-light); margin-bottom: 12px; }
+.toggle-row { display: flex; gap: 9px; margin-bottom: 14px; flex-wrap: wrap; }
+.toggle { padding: 8px 15px; border: 1px solid var(--border); background: #fff; border-radius: 7px;
+  font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .15s; }
+.toggle:hover { border-color: var(--text-muted); }
+.toggle.on-yes { background: var(--sg-bg); border-color: var(--sg-border); color: #fff; font-weight: 700; }
+.toggle.on-no { background: var(--r-bg); border-color: var(--r-border); color: var(--r-text); font-weight: 700; }
+.toggle-row.invalid { padding: 6px; border: 1px solid var(--r-border); border-radius: 8px; background: #FFFAFA; }
+
+.carried { background: var(--ar-bg); border-color: var(--ar-border); }
+.carried-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .5px; background: var(--ar-text); color: #fff; padding: 3px 7px; border-radius: 4px; margin-bottom: 7px; }
+
+.new-focus { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+  margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.nf-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.nf-num { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--text-light); }
+.btn-x { background: none; border: none; color: var(--text-light); font-size: 20px; line-height: 1;
+  cursor: pointer; font-family: inherit; padding: 0 4px; }
+.btn-x:hover { color: var(--r-text); }
+
+.btn { font-family: inherit; font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: 8px;
+  border: 1px solid transparent; cursor: pointer; transition: all .15s; }
+.btn-primary { background: var(--orange); color: #fff; }
+.btn-primary:hover { background: var(--orange-dark); }
+.btn-primary:disabled { background: var(--nd-border); color: #fff; cursor: not-allowed; }
+.btn-ghost { background: #fff; border-color: var(--border); color: var(--text-muted); font-weight: 500; }
+.btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+.btn-add { background: #fff; border: 1px dashed var(--orange); color: var(--orange); width: 100%; padding: 12px; }
+.btn-add:hover { background: var(--orange-light); }
+
+.submit-bar { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.submit-note { font-size: 12px; color: var(--text-muted); flex: 1 1 240px; }
+.msg { font-size: 13px; font-weight: 500; padding: 10px 14px; border-radius: 7px; margin-bottom: 14px; }
+.msg.ok { background: var(--g-bg); color: var(--g-text); border: 1px solid var(--g-border); }
+.msg.bad { background: var(--r-bg); color: var(--r-text); border: 1px solid var(--r-border); }
+
+.locked-card { background: var(--g-bg); border: 1px solid var(--g-border); border-radius: 10px; padding: 20px;
+  margin-bottom: 22px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.locked-card .lc-text { flex: 1 1 260px; }
+.locked-card .lc-title { font-size: 16px; font-weight: 700; color: var(--g-text); }
+.locked-card .lc-sub { font-size: 12.5px; color: var(--g-text); opacity: .85; }
+
+.empty { background: #fff; border: 1px dashed var(--border); border-radius: 10px; padding: 26px;
+  text-align: center; color: var(--text-muted); font-size: 13px; }
+.spin { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+
+@media print {
+  .header { position: static; box-shadow: none; }
+  .who-bar, .intro, .submit-bar, .btn, .btn-add, .btn-x, .banner { display: none !important; }
+  body { background: #fff; font-size: 11.5px; }
+  .content { padding: 0; max-width: none; }
+  .goal, .focus, .new-focus { break-inside: avoid; box-shadow: none; }
+  textarea { border: none; padding: 0; min-height: 0; height: auto; resize: none; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <div class="header-logo">EINSTEIN<span>/prep</span></div>
+    <div class="header-title">Tampa Weekly Sync Prep</div>
+  </div>
+  <div class="header-meta" id="hdr-meta"></div>
+</div>
+<div id="banner-slot"></div>
+<main class="content" id="root"><div class="spin">Loading your goals...</div></main>
+<script>
+// ---------------------------------------------------------------------------
+// EINSTEIN WEEKLY SYNC PREP -- single-branch manager prep page.
+//
+// No server. Goal data is read from data/goals.json in this repo (regenerated
+// by Gerald after every /sync). Manager submissions are committed to
+// data/prep.json via the GitHub Contents API. The write key rides in the URL
+// fragment (#k=...) so it never reaches a server and is never committed.
+// ---------------------------------------------------------------------------
+
+var BRANCH_ID   = 'tampa';
+var BRANCH_NAME = 'Tampa';
+var REPO        = 'mvandenbroader/einstein-prep-tampa-9bc4df3b7914';
+var API_BASE = 'https://api.github.com/repos/' + REPO + '/contents/';
+var RAW_BASE = 'https://raw.githubusercontent.com/' + REPO + '/main/';
+
+var STATUS_LABELS = {
+  super_green: 'Super Green', green: 'Green', at_risk: 'At Risk', red: 'Red',
+  blocked: 'Blocked', no_data: 'No Data', not_started: 'Not Started'
+};
+
+var MIN_CHARS = 5;
+var MAX_FOCUS = 4;
+
+var GOALS = null;      // parsed data/goals.json
+var PREP = [];         // array of submissions from data/prep.json
+var WEEK_OF = null;    // Monday of current week, YYYY-MM-DD
+var PREV_WEEK = null;  // Monday of prior week
+var TOKEN = '';
+var WHO = null;        // selected manager object
+var DRAFT = null;      // working answers for WHO + WEEK_OF
+var MSG = null;        // {kind:'ok'|'bad', text:''}
+var SHOW_ERRORS = false;
+var BUSY = false;
+
+// ---------- token ----------------------------------------------------------
+
+function resolveToken() {
+  var m = location.hash.match(/[#&]k=([^&]+)/);
+  if (m) {
+    TOKEN = decodeURIComponent(m[1]);
+    try { localStorage.setItem('prep_key_' + BRANCH_ID, TOKEN); } catch (e) {}
+    return;
+  }
+  try { TOKEN = localStorage.getItem('prep_key_' + BRANCH_ID) || ''; } catch (e) { TOKEN = ''; }
+}
+
+// ---------- github io -----------------------------------------------------
+
+function b64ToUtf8(b64) {
+  var bin = atob(String(b64).replace(/\s/g, ''));
+  var bytes = Uint8Array.from(bin, function (c) { return c.charCodeAt(0); });
+  return new TextDecoder().decode(bytes);
+}
+
+function utf8ToB64(str) {
+  var bytes = new TextEncoder().encode(str);
+  var bin = '';
+  bytes.forEach(function (b) { bin += String.fromCharCode(b); });
+  return btoa(bin);
+}
+
+function ghHeaders() {
+  var h = { 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+  if (TOKEN) h['Authorization'] = 'Bearer ' + TOKEN;
+  return h;
+}
+
+// True when served from a local dev server, so the page reads the sibling
+// data/ folder instead of the repo. Lets Gerald verify a build before the
+// repos exist. Never true on github.io.
+var LOCAL_MODE = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+
+function ghReadFile(path) {
+  if (LOCAL_MODE) {
+    return fetch(path + '?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status + ' reading ' + path);
+        return res.text();
+      })
+      .then(function (text) { return { text: text, sha: null }; });
+  }
+  if (TOKEN) {
+    return fetch(API_BASE + path, { headers: ghHeaders(), cache: 'no-store' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('GitHub API ' + res.status + ' reading ' + path);
+        return res.json();
+      })
+      .then(function (body) { return { text: b64ToUtf8(body.content), sha: body.sha }; });
+  }
+  return fetch(RAW_BASE + path + '?t=' + Date.now(), { cache: 'no-store' })
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' reading ' + path);
+      return res.text();
+    })
+    .then(function (text) { return { text: text, sha: null }; });
+}
+
+// Commit one submission: re-read latest prep.json, replace this manager+week,
+// PUT it back. Retries on sha conflict when two managers submit at once.
+function savePrep(entry) {
+  var attempt = 0;
+  function tryOnce() {
+    attempt++;
+    return ghReadFile('data/prep.json').then(function (latest) {
+      var store = JSON.parse(latest.text);
+      var list = (store.submissions || []).filter(function (s) {
+        return !(s.managerId === entry.managerId && s.weekOf === entry.weekOf);
+      });
+      list.push(entry);
+      list.sort(function (a, b) {
+        return a.weekOf === b.weekOf ? a.managerId.localeCompare(b.managerId)
+                                     : a.weekOf.localeCompare(b.weekOf);
+      });
+      store.submissions = list;
+      return fetch(API_BASE + 'data/prep.json', {
+        method: 'PUT',
+        headers: ghHeaders(),
+        body: JSON.stringify({
+          message: 'Prep: ' + entry.managerName + ' - week of ' + entry.weekOf,
+          content: utf8ToB64(JSON.stringify(store, null, 2) + '\n'),
+          sha: latest.sha
+        })
+      }).then(function (res) {
+        if (res.ok) { PREP = list; return; }
+        if ((res.status === 409 || res.status === 422) && attempt < 4) return tryOnce();
+        if (res.status === 401 || res.status === 403) {
+          throw new Error('Your link key was not accepted. Ask Mike for a fresh link.');
+        }
+        throw new Error('GitHub API ' + res.status + ' -- submission not saved.');
+      });
+    });
+  }
+  return tryOnce();
+}
+
+// ---------- week math -----------------------------------------------------
+
+function mondayOf(d) {
+  var day = d.getDay();
+  var diff = day === 0 ? -6 : 1 - day;
+  var m = new Date(d.getFullYear(), d.getMonth(), d.getDate() + diff);
+  return isoDate(m);
+}
+
+function isoDate(d) {
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' +
+         String(d.getDate()).padStart(2, '0');
+}
+
+function shiftWeeks(iso, n) {
+  var p = iso.split('-').map(Number);
+  var d = new Date(p[0], p[1] - 1, p[2] + n * 7);
+  return isoDate(d);
+}
+
+function fmtWeek(iso) {
+  var p = iso.split('-').map(Number);
+  return new Date(p[0], p[1] - 1, p[2])
+    .toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+function fmtStamp(iso) {
+  return new Date(iso).toLocaleString('en-US', {
+    weekday: 'short', month: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit'
+  });
+}
+
+// ---------- helpers -------------------------------------------------------
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function filled(s) { return String(s == null ? '' : s).trim().length >= MIN_CHARS; }
+
+function submissionFor(managerId, weekOf) {
+  for (var i = 0; i < PREP.length; i++) {
+    if (PREP[i].managerId === managerId && PREP[i].weekOf === weekOf) return PREP[i];
+  }
+  return null;
+}
+
+// Focus items Mike set in a sync for a given week. The source data can carry
+// duplicate weekOf blocks; the last one wins.
+function syncFocusFor(mgr, weekOf) {
+  var hit = null;
+  var blocks = mgr.weeklyFocus || [];
+  for (var i = 0; i < blocks.length; i++) if (blocks[i].weekOf === weekOf) hit = blocks[i];
+  return hit ? (hit.items || []) : null;
+}
+
+// Most recent sync focus block at or before a week.
+function latestSyncFocusUpTo(mgr, weekOf) {
+  var best = null;
+  var blocks = mgr.weeklyFocus || [];
+  for (var i = 0; i < blocks.length; i++) {
+    var b = blocks[i];
+    if (b.weekOf <= weekOf && (!best || b.weekOf >= best.weekOf)) best = b;
+  }
+  return best;
+}
+
+// What was this manager on the hook for last week?
+// 1. their own prior-week submission (items they proposed), else
+// 2. the focus block Mike set for that week, else
+// 3. the most recent focus block before it.
+function lastWeekCommitments(mgr) {
+  var prior = submissionFor(mgr.id, PREV_WEEK);
+  if (prior && prior.thisWeekFocus && prior.thisWeekFocus.length) {
+    return prior.thisWeekFocus.map(function (f) {
+      return { description: f.description, source: 'You committed to this last week' };
+    });
+  }
+  var items = syncFocusFor(mgr, PREV_WEEK);
+  if (items && items.length) {
+    return items.map(function (f) {
+      return { description: f.description, source: 'Set in the ' + fmtWeek(PREV_WEEK) + ' sync' };
+    });
+  }
+  var block = latestSyncFocusUpTo(mgr, PREV_WEEK);
+  if (block && block.items && block.items.length) {
+    return block.items.map(function (f) {
+      return { description: f.description, source: 'Set in the ' + fmtWeek(block.weekOf) + ' sync' };
+    });
+  }
+  return [];
+}
+
+// ---------- draft ---------------------------------------------------------
+
+function draftKey(mgrId) { return 'prep_draft:' + BRANCH_ID + ':' + mgrId + ':' + WEEK_OF; }
+
+function saveDraft() {
+  if (!WHO || !DRAFT) return;
+  try { localStorage.setItem(draftKey(WHO.id), JSON.stringify(DRAFT)); } catch (e) {}
+}
+
+function clearDraft(mgrId) {
+  try { localStorage.removeItem(draftKey(mgrId)); } catch (e) {}
+}
+
+function blankDraft(mgr) {
+  var d = { goals: {}, lastWeekFocus: [], thisWeekFocus: [] };
+  (mgr.goals || []).forEach(function (g) {
+    d.goals[g.id] = { lastWeekActions: '', thisWeekPlan: '' };
+  });
+  lastWeekCommitments(mgr).forEach(function (c) {
+    d.lastWeekFocus.push({
+      description: c.description, source: c.source,
+      completed: null, retrying: null, actions: '', note: ''
+    });
+  });
+  d.thisWeekFocus = [{ description: '', actions: '' }, { description: '', actions: '' }];
+  return d;
+}
+
+// Rebuild a draft from an existing submission so Reopen shows what was sent.
+function draftFromSubmission(mgr, sub) {
+  var d = { goals: {}, lastWeekFocus: [], thisWeekFocus: [] };
+  (mgr.goals || []).forEach(function (g) {
+    d.goals[g.id] = { lastWeekActions: '', thisWeekPlan: '' };
+  });
+  (sub.goals || []).forEach(function (g) {
+    d.goals[g.goalId] = {
+      lastWeekActions: g.lastWeekActions || '',
+      thisWeekPlan: g.thisWeekPlan || ''
+    };
+  });
+  (sub.lastWeekFocus || []).forEach(function (f) {
+    d.lastWeekFocus.push({
+      description: f.description, source: f.source || '',
+      completed: typeof f.completed === 'boolean' ? f.completed : null,
+      retrying: typeof f.retrying === 'boolean' ? f.retrying : null,
+      actions: f.actions || '', note: f.note || ''
+    });
+  });
+  (sub.thisWeekFocus || []).forEach(function (f) {
+    d.thisWeekFocus.push({ description: f.description || '', actions: f.actions || '' });
+  });
+  if (!d.thisWeekFocus.length) d.thisWeekFocus = [{ description: '', actions: '' }];
+  return d;
+}
+
+function loadDraft(mgr) {
+  var saved = null;
+  try { saved = localStorage.getItem(draftKey(mgr.id)); } catch (e) {}
+  if (saved) {
+    try {
+      var d = JSON.parse(saved);
+      if (d && d.goals && d.lastWeekFocus && d.thisWeekFocus) {
+        // Re-anchor last-week items in case the sync data changed since the draft.
+        var live = lastWeekCommitments(mgr);
+        if (live.length && d.lastWeekFocus.length !== live.length) {
+          var byDesc = {};
+          d.lastWeekFocus.forEach(function (f) { byDesc[f.description] = f; });
+          d.lastWeekFocus = live.map(function (c) {
+            var prev = byDesc[c.description];
+            return prev ? prev : {
+              description: c.description, source: c.source,
+              completed: null, retrying: null, actions: '', note: ''
+            };
+          });
+        }
+        return d;
+      }
+    } catch (e) {}
+  }
+  var sub = submissionFor(mgr.id, WEEK_OF);
+  return sub ? draftFromSubmission(mgr, sub) : blankDraft(mgr);
+}
+
+function selectManager(mgr) {
+  WHO = mgr;
+  DRAFT = loadDraft(mgr);
+  MSG = null;
+  SHOW_ERRORS = false;
+  try { localStorage.setItem('prep_who_' + BRANCH_ID, mgr.id); } catch (e) {}
+  render();
+}
+</script>
+<script>
+// ---------- validation ----------------------------------------------------
+
+function goalIsOptional(g) { return g.status === 'blocked'; }
+
+function validate() {
+  var errs = { goals: {}, focus: {}, newFocus: {}, newFocusCount: false };
+  var ok = true;
+  if (!WHO || !DRAFT) return { ok: false, errs: errs };
+
+  (WHO.goals || []).forEach(function (g) {
+    if (goalIsOptional(g)) return;
+    var a = DRAFT.goals[g.id] || {};
+    var e = { lastWeekActions: !filled(a.lastWeekActions), thisWeekPlan: !filled(a.thisWeekPlan) };
+    if (e.lastWeekActions || e.thisWeekPlan) { ok = false; errs.goals[g.id] = e; }
+  });
+
+  DRAFT.lastWeekFocus.forEach(function (f, i) {
+    var e = { completed: false, retrying: false, actions: false };
+    if (f.completed === null) { e.completed = true; ok = false; }
+    if (f.completed === false) {
+      if (f.retrying === null) { e.retrying = true; ok = false; }
+      if (!filled(f.actions)) { e.actions = true; ok = false; }
+    }
+    if (e.completed || e.retrying || e.actions) errs.focus[i] = e;
+  });
+
+  var real = 0;
+  DRAFT.thisWeekFocus.forEach(function (f, i) {
+    var hasDesc = filled(f.description), hasAct = filled(f.actions);
+    if (!hasDesc && !hasAct) return;          // blank row, ignored
+    real++;
+    var e = { description: !hasDesc, actions: !hasAct };
+    if (e.description || e.actions) { ok = false; errs.newFocus[i] = e; }
+  });
+  if (real === 0) { ok = false; errs.newFocusCount = true; }
+
+  return { ok: ok, errs: errs };
+}
+
+// ---------- render -------------------------------------------------------
+
+function render() {
+  var q = GOALS && GOALS.meta ? GOALS.meta : {};
+  document.getElementById('hdr-meta').innerHTML =
+    'Week of ' + esc(fmtWeek(WEEK_OF)) +
+    (q.quarter ? '<br>' + esc(q.quarter) + (q.quarterEnd ? ' ends ' + esc(q.quarterEnd) : '') : '');
+
+  var bs = document.getElementById('banner-slot');
+  bs.innerHTML = TOKEN ? '' :
+    '<div class="banner warn">View only. Your personal prep link from Mike ends in ' +
+    '<b>#k=...</b> -- open that link to submit.</div>';
+
+  var mgrs = (GOALS && GOALS.managers) || [];
+  var html = '';
+
+  html += '<div class="who-bar"><span class="who-label">I am</span>';
+  mgrs.forEach(function (m) {
+    var sub = submissionFor(m.id, WEEK_OF);
+    html += '<button class="who-btn' + (WHO && WHO.id === m.id ? ' active' : '') +
+      '" onclick="pickWho(\'' + esc(m.id) + '\')">' + esc(m.name) +
+      '<span class="who-role">' + esc(m.role) + (sub ? ' - submitted' : '') + '</span></button>';
+  });
+  html += '</div>';
+
+  if (!WHO) {
+    html += '<div class="empty">Pick your name above to start this week\'s prep.</div>';
+    document.getElementById('root').innerHTML = html;
+    return;
+  }
+
+  var v = validate();
+  var errs = SHOW_ERRORS ? v.errs : { goals: {}, focus: {}, newFocus: {}, newFocusCount: false };
+  var sub = submissionFor(WHO.id, WEEK_OF);
+
+  if (sub) {
+    html += '<div class="locked-card"><div class="lc-text">' +
+      '<div class="lc-title">Submitted ' + esc(fmtStamp(sub.submittedAt)) + '</div>' +
+      '<div class="lc-sub">Mike has it. You can still edit below and resubmit before the sync.</div>' +
+      '</div><button class="btn btn-ghost" onclick="printMine()">Print my copy</button></div>';
+  } else {
+    html += '<div class="intro"><b>Come to the sync already prepped.</b>' +
+      'For every quarterly goal, write what you actually did last week to move it and what you are ' +
+      'doing this week. Then close out last week\'s focus items and set this week\'s. ' +
+      'Your answers save as you type -- submit when it is done.</div>';
+  }
+
+  if (MSG) html += '<div class="msg ' + (MSG.kind === 'ok' ? 'ok' : 'bad') + '">' + esc(MSG.text) + '</div>';
+
+  // -- 1. quarterly goals --
+  html += '<div class="section"><div class="section-head"><span class="section-num">1</span>' +
+    '<span class="section-title">Quarterly Goals</span></div>' +
+    '<div class="section-sub">Both boxes required on every goal that is not blocked.</div>';
+
+  (WHO.goals || []).forEach(function (g) {
+    var a = DRAFT.goals[g.id] || { lastWeekActions: '', thisWeekPlan: '' };
+    var ge = errs.goals[g.id] || {};
+    var opt = goalIsOptional(g);
+    var st = g.status || 'no_data';
+
+    html += '<div class="goal"><div class="goal-head">' +
+      '<span class="goal-name">' + esc(g.name) + '</span>' +
+      '<span class="badge ' + esc(st) + '">' + esc(STATUS_LABELS[st] || st) + '</span></div>' +
+      '<div class="goal-body">';
+
+    html += '<div class="ctx"><div class="ctx-label">Where this stood at the last sync' +
+      (g.lastUpdated ? ' (' + esc(g.lastUpdated) + ')' : '') + '</div>';
+    if (g.currentValue) html += '<div class="ctx-row"><b>Current:</b> ' + esc(g.currentValue) + '</div>';
+    if (g.notes)        html += '<div class="ctx-row"><b>Notes:</b> ' + esc(g.notes) + '</div>';
+    if (g.nextAction)   html += '<div class="ctx-row"><b>Next action:</b> ' + esc(g.nextAction) + '</div>';
+    if (!g.currentValue && !g.notes && !g.nextAction) html += '<div class="ctx-row">No notes from the last sync.</div>';
+    var t = g.thresholds || {};
+    if (t.superGreen || t.green || t.red) {
+      html += '<details class="thr"><summary>What Super Green / Green / Red means</summary><div class="thr-body">' +
+        (t.superGreen ? '<div class="thr-line"><span>Super Green:</span> ' + esc(t.superGreen) + '</div>' : '') +
+        (t.green      ? '<div class="thr-line"><span>Green:</span> ' + esc(t.green) + '</div>' : '') +
+        (t.red        ? '<div class="thr-line"><span>Red:</span> ' + esc(t.red) + '</div>' : '') +
+        '</div></details>';
+    }
+    html += '</div>';
+
+    html += '<div class="field' + (ge.lastWeekActions ? ' invalid' : '') + '">' +
+      '<label>What I did last week to move this ' +
+      (opt ? '<span class="hint">(blocked -- optional)</span>' : '') + '</label>' +
+      '<textarea placeholder="Specific actions you took. Not a status -- what you actually did." ' +
+      'oninput="setGoal(' + JSON.stringify(String(g.id)) + ',\'lastWeekActions\',this)">' +
+      esc(a.lastWeekActions) + '</textarea></div>';
+
+    html += '<div class="field' + (ge.thisWeekPlan ? ' invalid' : '') + '">' +
+      '<label>What I am doing this week to get or stay on track ' +
+      (opt ? '<span class="hint">(blocked -- optional)</span>' : '') + '</label>' +
+      '<textarea placeholder="The specific moves you are making this week." ' +
+      'oninput="setGoal(' + JSON.stringify(String(g.id)) + ',\'thisWeekPlan\',this)">' +
+      esc(a.thisWeekPlan) + '</textarea></div>';
+
+    html += '</div></div>';
+  });
+  html += '</div>';
+
+  // -- 2. last week's focus items --
+  html += '<div class="section"><div class="section-head"><span class="section-num">2</span>' +
+    '<span class="section-title">Last Week\'s Focus Items</span></div>' +
+    '<div class="section-sub">Week of ' + esc(fmtWeek(PREV_WEEK)) + '. Close each one out honestly.</div>';
+
+  if (!DRAFT.lastWeekFocus.length) {
+    html += '<div class="empty">No focus items on record for last week. Skip to section 3.</div>';
+  }
+
+  DRAFT.lastWeekFocus.forEach(function (f, i) {
+    var fe = errs.focus[i] || {};
+    html += '<div class="focus' + (f.completed === false ? ' carried' : '') + '">' +
+      '<div class="focus-desc">' + esc(f.description) + '</div>' +
+      '<div class="focus-src">' + esc(f.source || '') + '</div>';
+
+    html += '<label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px">Did you complete it?</label>' +
+      '<div class="toggle-row' + (fe.completed ? ' invalid' : '') + '">' +
+      '<button class="toggle' + (f.completed === true ? ' on-yes' : '') +
+        '" onclick="setDone(' + i + ',true)">Completed</button>' +
+      '<button class="toggle' + (f.completed === false ? ' on-no' : '') +
+        '" onclick="setDone(' + i + ',false)">Not completed</button></div>';
+
+    if (f.completed === true) {
+      html += '<div class="field"><label>How you got it done <span class="hint">(optional)</span></label>' +
+        '<textarea class="short" placeholder="Worth a line if there is something Mike should know." ' +
+        'oninput="setFocusText(' + i + ',\'note\',this)">' + esc(f.note) + '</textarea></div>';
+    }
+
+    if (f.completed === false) {
+      html += '<label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px">Trying again this week?</label>' +
+        '<div class="toggle-row' + (fe.retrying ? ' invalid' : '') + '">' +
+        '<button class="toggle' + (f.retrying === true ? ' on-yes' : '') +
+          '" onclick="setRetry(' + i + ',true)">Yes, carrying it forward</button>' +
+        '<button class="toggle' + (f.retrying === false ? ' on-no' : '') +
+          '" onclick="setRetry(' + i + ',false)">No, coming off the list</button></div>';
+
+      var lbl = f.retrying === false
+        ? 'Why it is coming off the list, and what you are doing instead'
+        : 'Specific actions you will take this week to deliver it';
+      html += '<div class="field' + (fe.actions ? ' invalid' : '') + '">' +
+        '<label>' + lbl + '</label>' +
+        '<textarea placeholder="Be specific. Dates, names, numbers." ' +
+        'oninput="setFocusText(' + i + ',\'actions\',this)">' + esc(f.actions) + '</textarea></div>';
+    }
+
+    html += '</div>';
+  });
+  html += '</div>';
+
+  // -- 3. this week's focus items --
+  var carried = DRAFT.lastWeekFocus.filter(function (f) { return f.completed === false && f.retrying === true; });
+
+  html += '<div class="section"><div class="section-head"><span class="section-num">3</span>' +
+    '<span class="section-title">This Week\'s Focus Items</span></div>' +
+    '<div class="section-sub">What you are putting your name on for the week of ' +
+    esc(fmtWeek(WEEK_OF)) + '. Mike ratifies these in the sync.</div>';
+
+  if (carried.length) {
+    html += '<div class="focus carried"><span class="carried-tag">Carried forward</span>';
+    carried.forEach(function (f) {
+      html += '<div class="ctx-row"><b>' + esc(f.description) + '</b></div>';
+    });
+    html += '<div class="focus-src">Already counted for this week -- your actions are in section 2.</div></div>';
+  }
+
+  DRAFT.thisWeekFocus.forEach(function (f, i) {
+    var ne = errs.newFocus[i] || {};
+    html += '<div class="new-focus"><div class="nf-head">' +
+      '<span class="nf-num">New focus item ' + (i + 1) + '</span>' +
+      (DRAFT.thisWeekFocus.length > 1
+        ? '<button class="btn-x" title="Remove" onclick="removeFocus(' + i + ')">&times;</button>' : '') +
+      '</div>' +
+      '<div class="field' + (ne.description ? ' invalid' : '') + '"><label>Focus item</label>' +
+      '<input type="text" placeholder="One clear, finishable thing." value="' + esc(f.description) +
+      '" oninput="setNewFocus(' + i + ',\'description\',this)"></div>' +
+      '<div class="field' + (ne.actions ? ' invalid' : '') + '"><label>Specific actions you will take</label>' +
+      '<textarea class="short" placeholder="How it actually gets done this week." ' +
+      'oninput="setNewFocus(' + i + ',\'actions\',this)">' + esc(f.actions) + '</textarea></div></div>';
+  });
+
+  if (DRAFT.thisWeekFocus.length < MAX_FOCUS) {
+    html += '<button class="btn btn-add" onclick="addFocus()">+ Add another focus item</button>';
+  }
+  if (errs.newFocusCount) {
+    html += '<div class="msg bad">Add at least one focus item for this week, with the actions you will take.</div>';
+  }
+  html += '</div>';
+
+  // -- submit --
+  html += '<div class="submit-bar">' +
+    '<button class="btn btn-primary" id="btn-submit" onclick="submitPrep()"' + (BUSY ? ' disabled' : '') + '>' +
+    (BUSY ? 'Sending...' : (sub ? 'Resubmit prep' : 'Submit prep')) + '</button>' +
+    '<span class="submit-note">' +
+    (TOKEN ? 'Saves to Mike\'s weekly packet. Everything above autosaves in this browser as you type.'
+           : 'You are on the view-only link -- ask Mike for the one that ends in #k=...') +
+    '</span></div>';
+
+  document.getElementById('root').innerHTML = html;
+}
+
+// ---------- handlers ----------------------------------------------------
+
+function pickWho(id) {
+  var m = (GOALS.managers || []).filter(function (x) { return x.id === id; })[0];
+  if (m) selectManager(m);
+}
+
+function setGoal(goalId, field, el) {
+  if (!DRAFT.goals[goalId]) DRAFT.goals[goalId] = { lastWeekActions: '', thisWeekPlan: '' };
+  DRAFT.goals[goalId][field] = el.value;
+  saveDraft();
+}
+
+function setDone(i, val) {
+  var f = DRAFT.lastWeekFocus[i];
+  f.completed = val;
+  if (val === true) { f.retrying = null; f.actions = ''; }
+  else { f.note = ''; }
+  saveDraft();
+  render();
+}
+
+function setRetry(i, val) {
+  DRAFT.lastWeekFocus[i].retrying = val;
+  saveDraft();
+  render();
+}
+
+function setFocusText(i, field, el) {
+  DRAFT.lastWeekFocus[i][field] = el.value;
+  saveDraft();
+}
+
+function setNewFocus(i, field, el) {
+  DRAFT.thisWeekFocus[i][field] = el.value;
+  saveDraft();
+}
+
+function addFocus() {
+  if (DRAFT.thisWeekFocus.length >= MAX_FOCUS) return;
+  DRAFT.thisWeekFocus.push({ description: '', actions: '' });
+  saveDraft();
+  render();
+}
+
+function removeFocus(i) {
+  DRAFT.thisWeekFocus.splice(i, 1);
+  if (!DRAFT.thisWeekFocus.length) DRAFT.thisWeekFocus.push({ description: '', actions: '' });
+  saveDraft();
+  render();
+}
+
+function printMine() { window.print(); }
+
+function submitPrep() {
+  if (!TOKEN) {
+    MSG = { kind: 'bad', text: 'This link is view-only. Ask Mike for your submit link.' };
+    render();
+    return;
+  }
+  var v = validate();
+  if (!v.ok) {
+    SHOW_ERRORS = true;
+    MSG = { kind: 'bad', text: 'Some answers are missing -- the empty boxes are outlined in red below.' };
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  var entry = {
+    branchId: BRANCH_ID,
+    branchName: BRANCH_NAME,
+    managerId: WHO.id,
+    managerName: WHO.name,
+    role: WHO.role,
+    weekOf: WEEK_OF,
+    priorWeekOf: PREV_WEEK,
+    submittedAt: new Date().toISOString(),
+    goals: (WHO.goals || []).map(function (g) {
+      var a = DRAFT.goals[g.id] || {};
+      return {
+        goalId: g.id,
+        goalName: g.name,
+        statusAtPrep: g.status || 'no_data',
+        lastWeekActions: String(a.lastWeekActions || '').trim(),
+        thisWeekPlan: String(a.thisWeekPlan || '').trim()
+      };
+    }),
+    lastWeekFocus: DRAFT.lastWeekFocus.map(function (f) {
+      return {
+        description: f.description,
+        source: f.source || '',
+        completed: f.completed,
+        retrying: f.completed === false ? f.retrying : null,
+        actions: String(f.actions || '').trim(),
+        note: String(f.note || '').trim()
+      };
+    }),
+    thisWeekFocus: DRAFT.thisWeekFocus
+      .filter(function (f) { return filled(f.description) || filled(f.actions); })
+      .map(function (f) {
+        return { description: String(f.description).trim(), actions: String(f.actions).trim() };
+      })
+  };
+
+  BUSY = true;
+  MSG = null;
+  render();
+
+  savePrep(entry).then(function () {
+    BUSY = false;
+    SHOW_ERRORS = false;
+    clearDraft(WHO.id);
+    MSG = { kind: 'ok', text: 'Prep submitted. Mike has it for the sync.' };
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }).catch(function (err) {
+    BUSY = false;
+    MSG = { kind: 'bad', text: 'Could not save: ' + err.message + ' Your answers are still saved in this browser.' };
+    render();
+  });
+}
+
+// ---------- boot --------------------------------------------------------
+
+function boot() {
+  resolveToken();
+  WEEK_OF = mondayOf(new Date());
+  PREV_WEEK = shiftWeeks(WEEK_OF, -1);
+
+  var goalsP = ghReadFile('data/goals.json');
+  var prepP = ghReadFile('data/prep.json').catch(function () { return { text: '{"submissions":[]}' }; });
+
+  Promise.all([goalsP, prepP]).then(function (r) {
+    GOALS = JSON.parse(r[0].text);
+    try { PREP = JSON.parse(r[1].text).submissions || []; } catch (e) { PREP = []; }
+
+    var mgrs = GOALS.managers || [];
+    var savedWho = null;
+    try { savedWho = localStorage.getItem('prep_who_' + BRANCH_ID); } catch (e) {}
+    var pick = mgrs.filter(function (m) { return m.id === savedWho; })[0];
+    if (pick) { selectManager(pick); } else { render(); }
+  }).catch(function (err) {
+    document.getElementById('banner-slot').innerHTML =
+      '<div class="banner err">Could not load your goals: ' + esc(err.message) +
+      ' Refresh, or send Mike a screenshot of this.</div>';
+    document.getElementById('root').innerHTML =
+      '<div class="empty">Nothing loaded. This page needs data/goals.json in its repo.</div>';
+  });
+}
+
+boot();
+</script>
+</body>
+</html>
