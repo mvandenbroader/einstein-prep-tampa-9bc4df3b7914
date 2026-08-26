@@ -385,13 +385,13 @@ function lastWeekCommitments(mgr) {
   var items = syncFocusFor(mgr, PREV_WEEK);
   if (items && items.length) {
     return items.map(function (f) {
-      return { description: f.description, source: 'Set in the ' + fmtWeek(PREV_WEEK) + ' sync' };
+      return { description: f.description, source: 'Set in last week's sync (week of ' + fmtWeek(PREV_WEEK) + ')' };
     });
   }
   var block = latestSyncFocusUpTo(mgr, PREV_WEEK);
   if (block && block.items && block.items.length) {
     return block.items.map(function (f) {
-      return { description: f.description, source: 'Set in the ' + fmtWeek(block.weekOf) + ' sync' };
+      return { description: f.description, source: 'Still open from the week of ' + fmtWeek(block.weekOf) };
     });
   }
   return [];
