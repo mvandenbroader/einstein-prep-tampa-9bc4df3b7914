@@ -3,13 +3,13 @@
     "quarter": "Q3 2026",
     "quarterStart": "2026-08-01",
     "quarterEnd": "2026-10-31",
-    "generatedFor": "2026-08-24",
+    "generatedFor": "2026-08-31",
     "sourceLastGenerated": "2026-08-04T00:00:00"
   },
   "branch": {
     "id": "tampa",
     "name": "Tampa",
-    "lastSync": "2026-08-18"
+    "lastSync": "2026-09-02"
   },
   "managers": [
     {
@@ -25,11 +25,11 @@
             "green": "100% manager sandbox by 8/19. 100% movers enrolled 8/20. 70%+ enrolled movers complete through stage 4 by EOQ.",
             "red": "Less than 70% of enrolled movers complete through stage 4 by EOQ."
           },
-          "status": "super_green",
-          "currentValue": "SOP training completing today (8/18). Movers enrolled 8/20.",
-          "notes": "Steven finishing SOP today, Shane at home doing it today. Both done by 8/19 EOD. Team goes live 8/20.",
-          "nextAction": "Complete SOP by 8/19 EOD; team live 8/20",
-          "lastUpdated": "2026-08-18"
+          "status": "green",
+          "currentValue": "All movers enrolled 8/20. Coaching on progression. Low hours last week slowed progress.",
+          "notes": "Steven (9/1 prep): all enrolled 8/20, constant coaching. Sync (9/2): branch at 62%, 33% on track. Isaiah fixed live (email issue). Brandon and Clem locked (no 7-day progress). Warning template now live. Shane out of sales training, more time for coaching. Self-assessment: Green.",
+          "nextAction": "Coach team through app stages; push progression with available hours",
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 2,
@@ -40,10 +40,10 @@
             "red": "Less than 100% to quarterly sales goal"
           },
           "status": "red",
-          "currentValue": "Still red -- constrained by practice-period limits (1-2 BR, ~1600 sq ft)",
-          "notes": "Steven must expand beyond Tampa to hit goals. Tampa-only leads too limited for practice period. RLs cherry-picking 1-2 BR leads. $4.2K Ken Smith cancellation under investigation. Weekly target $4,300.",
-          "nextAction": "Expand sales quoting beyond Tampa; target $4,300/week",
-          "lastUpdated": "2026-08-18"
+          "currentValue": "$1,836/wk last week. 46% to budget goal. Conversion: 50% number / 41% dollar.",
+          "notes": "Steven (9/2 sync): relegated to 1-2 BR only. August was great for company but couldn't capitalize. Branch sales 79% August \u2014 lead volume declining, not conversion. Cancellation rate 13% by dollar. Starts sales training next Tuesday 9/9. Weekly target $4,600. Self-assessment: Red.",
+          "nextAction": "Start sales training 9/9; target $4,600/week; check lead volume with Madison",
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 3,
@@ -55,9 +55,9 @@
           },
           "status": "blocked",
           "currentValue": "",
-          "notes": "Blocked until Brian rolls out Scrum University. Shane confirmed he cannot find enrollment anywhere.",
+          "notes": "Blocked by Brian. Mike walked Tampa through scorecard preview (9/2 sync). Board scored C (76%), both managers B (80%). Brian finalizing cert rollout. Mike gave feedback. Running pre-launch grades to establish baseline.",
           "nextAction": "Waiting on Brian",
-          "lastUpdated": "2026-08-11"
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 4,
@@ -67,25 +67,25 @@
             "green": "Branch average total score 7 or higher (no individual score below 6)",
             "red": "Branch average total score less than 7"
           },
-          "status": "blocked",
-          "currentValue": "",
-          "notes": "Blocked until Madison pushes Games dashboard live. Mike flagged: 3 weeks into Q3 with no numbers -- 'that is a problem.'",
-          "nextAction": "Monitor Madison for Games dashboard activation",
-          "lastUpdated": "2026-08-18"
+          "status": "super_green",
+          "currentValue": "Games scores: 12/12/10/10. Branch SG on command center.",
+          "notes": "Steven (9/1 prep): self-reported SG. Sync (9/2): confirmed via command center \u2014 12/12/10/10. Mike: 'You guys are freaking beautiful.' Tampa leading company. Coaching conversations planned for any low individual numbers.",
+          "nextAction": "Maintain standings; coach any individual dips",
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 5,
           "name": "BM Flex Goal",
           "thresholds": {
-            "superGreen": "BM flex goal defined and approved by RGNL by AUG 15. Approved Super Green goal met by EOQ.",
-            "green": "BM flex goal defined and approved by RGNL by AUG 30. Approved Green goal met by EOQ.",
-            "red": "Flex goal undefined by AUG 30 or approved Green goal not met."
+            "superGreen": "Everything ready and moved into new facility by Sep or Oct.",
+            "green": "Everything ready, lease signed, but cannot move until later than October.",
+            "red": "Nothing done, no location secured."
           },
           "status": "green",
-          "currentValue": "R/G/SG defined: SG = locked + moved in by EOQ; G = locked + lease signed + ready; R = no location secured",
-          "notes": "Criteria finalized in 8/18 sync. Touring Ready Space at 5806 N 53rd St ($3,100/mo, saves $2,800/mo). Property details pending from manager. Steven updating reference pulse today.",
-          "nextAction": "Forward property details to Mike/Paul; finalize reference pulse with R/G/SG",
-          "lastUpdated": "2026-08-18"
+          "currentValue": "Paul visited and liked facility. 165 sq ft office, 865 or 2,500 sq ft storage. Lease meeting with Dan pushed to Tuesday 9/9.",
+          "notes": "Steven (9/1 prep): new location picked, lease pending. Sync (9/2): Paul toured yesterday, liked it. Office 165 sqft (enough for Steven+Shane), storage 865 sqft (or 2,500 option). Similar to Fort Worth setup. Need clear answer for Ready Space. Lease meeting with Dan = Tuesday 9/9 (Mike flying in Monday, Shane off Monday). Self-assessment: Green.",
+          "nextAction": "Lease meeting with Dan Tuesday 9/9; provide clear answer to Ready Space",
+          "lastUpdated": "2026-09-02"
         }
       ],
       "weeklyFocus": [
@@ -124,13 +124,28 @@
           "items": [
             {
               "description": "Complete SOP training for mover app",
-              "completed": null,
-              "notes": "Due 8/19 EOD. Shane also completing today."
+              "completed": true,
+              "notes": "Steven (9/1): Yes completed, no notes to report."
             },
             {
               "description": "Schedules completed and posted",
               "completed": true,
-              "notes": "Already done per Steven at start of sync."
+              "notes": "Steven (9/1): Currently working on schedule, template is ready."
+            }
+          ]
+        },
+        {
+          "weekOf": "2026-08-31",
+          "items": [
+            {
+              "description": "Get resolution on lease situation (new Tampa facility)",
+              "completed": null,
+              "notes": "Paul visited, liked facility. Lease meeting with Dan pushed to Tue 9/9. Mike attending."
+            },
+            {
+              "description": "Ensure team moves to next stage in Mover Training App",
+              "completed": null,
+              "notes": "Branch 62%, 33% on track. Isaiah fixed. Brandon/Clem locked \u2014 warning conversations needed."
             }
           ]
         }
@@ -149,11 +164,11 @@
             "green": "100% manager sandbox by 8/19. 100% movers enrolled 8/20. 70%+ enrolled movers complete through stage 4 by EOQ.",
             "red": "Less than 70% of enrolled movers complete through stage 4 by EOQ."
           },
-          "status": "super_green",
-          "currentValue": "SOP training in progress (at home 8/18). Done by 8/19 EOD.",
-          "notes": "Shane doing SOP training at home today. Confirmed by Steven.",
-          "nextAction": "Complete SOP by 8/19 EOD; team live 8/20",
-          "lastUpdated": "2026-08-18"
+          "status": "green",
+          "currentValue": "Behind the curve but still green. Low hours + sales training slowed progress last week.",
+          "notes": "Shane (9/1 prep): low hours + sales training ate week. Sync (9/2): branch 33% on track. Brandon and Clem locked. Isaiah fixed live. Shane now done with sales training \u2014 more time for coaching. Warning template live for locked movers. Self-assessment: Green, SG still accomplishable.",
+          "nextAction": "1-on-1 hands-on coaching with movers; schedule daily task work sessions",
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 2,
@@ -163,11 +178,11 @@
             "green": "100%+ to quarterly sales goal",
             "red": "Less than 100% to quarterly sales goal"
           },
-          "status": "at_risk",
-          "currentValue": "Delivering on weekly targets. Mike: 'Shane is doing awesome.' Weekly target $4,400.",
-          "notes": "Shane hit weekly sales target last week and likely surpassed $4,400 this week per Steven. Pipeline follow-up process driving 65-70% of bookings. Quarterly pace improving from Week 1 red (16.6%). Needs praise logging -- not logging in system, may be batching.",
-          "nextAction": "Continue weekly sales pace; hit $4,400/week",
-          "lastUpdated": "2026-08-18"
+          "status": "green",
+          "currentValue": "Hit August goal. Unlocked from sales training (confirmed 8/30 by Ted). Conversion: 45%. Weekly target $5,000.",
+          "notes": "Shane (9/1 prep): $1.1K last week (light), hit Aug goal. Sync (9/2): sales training completed Saturday, now fully unlocked for big moves. Conversion 45% (strong). Last week 66% conversion. Branch overall 25% dragged by non-manager team. Mike: 'that should be significantly easier for you now.' Self-assessment: Green now, SG soon.",
+          "nextAction": "Capitalize on full sales unlock; target $5,000/week; pursue ESPs when live",
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 3,
@@ -179,9 +194,9 @@
           },
           "status": "blocked",
           "currentValue": "",
-          "notes": "Blocked until Brian rolls out. Shane confirmed cannot find enrollment.",
+          "notes": "Blocked by Brian. Mike walked Tampa through scorecard preview (9/2 sync). Shane scored B (80%). Fixing QG dLOWs live during meeting.",
           "nextAction": "Waiting on Brian",
-          "lastUpdated": "2026-08-11"
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 4,
@@ -191,11 +206,11 @@
             "green": "Branch Samsara score 7 or higher",
             "red": "Branch Samsara score less than 7"
           },
-          "status": "blocked",
-          "currentValue": "",
-          "notes": "Blocked until Madison pushes Games dashboard live. Mike flagged: 3 weeks into Q3 with no numbers.",
-          "nextAction": "Monitor Games dashboard activation",
-          "lastUpdated": "2026-08-18"
+          "status": "super_green",
+          "currentValue": "Driving 13, Damages 13 for the week. Branch Games 12/12/10/10 per command center.",
+          "notes": "Shane (9/1 prep): 13 and 13, team doing great. Sync (9/2): confirmed via command center \u2014 Tampa Games SG. Continued coaching and friendly reminders. Self-assessment: SG.",
+          "nextAction": "Maintain standings; continue coaching",
+          "lastUpdated": "2026-09-02"
         },
         {
           "id": 5,
@@ -206,10 +221,10 @@
             "red": "Flex goal undefined by AUG 30 or approved Green goal not met."
           },
           "status": "green",
-          "currentValue": "Goal defined: 5 vendor contracts (SG), 4 (G), 3 or fewer (R). 2 near-ready.",
-          "notes": "Outside sales / lead gen partnerships. Has 2 contracts near-ready. Must include job minimums per partner (2-3 jobs each over the quarter). Will model partner value by unit count, activity, revenue.",
-          "nextAction": "Define job minimums per partnership; update pulse; pursue 5+ vendor contracts",
-          "lastUpdated": "2026-08-11"
+          "currentValue": "First move completed with first new/reinstated partnership. 2 IPMs scheduled this week.",
+          "notes": "Shane (9/1 prep): first move with first new/reinstated partnership done. Plan: 2 IPMs with Cora and MAV property directors. Sync (9/2): confirmed. Self-assessment: Green.",
+          "nextAction": "Schedule IPMs with Cora and MAV property directors",
+          "lastUpdated": "2026-09-02"
         }
       ],
       "weeklyFocus": [
@@ -248,13 +263,28 @@
           "items": [
             {
               "description": "Continue delivering on weekly sales target ($4,400)",
-              "completed": null,
-              "notes": "Shane not present for sync. Sales going well per Steven/Mike."
+              "completed": false,
+              "notes": "Shane (9/1): Did not complete -- sales training ate most of the week, needed to catch up on branch ops."
             },
             {
               "description": "Log praise entries (at least weekly)",
+              "completed": true,
+              "notes": "Shane (9/1): Yes, 16 praises for August."
+            }
+          ]
+        },
+        {
+          "weekOf": "2026-08-31",
+          "items": [
+            {
+              "description": "Get ahead of curve on weekly sales goal ($4,400)",
               "completed": null,
-              "notes": "Mike flagged: Shane not logging praise in system. Must log at least weekly."
+              "notes": "Now fully unlocked from sales training. $5,000/week target. Mike: 'should be significantly easier now.'"
+            },
+            {
+              "description": "Schedule IPMs with Cora and MAV property directors for flex goal",
+              "completed": null,
+              "notes": "Shane's #2 priority. In-person meetings in downtown Tampa."
             }
           ]
         }
